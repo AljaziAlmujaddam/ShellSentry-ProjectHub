@@ -22,8 +22,10 @@
         <h1 class="brand">ShellSentry</h1>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
+          <li><a href="#security">Security</a></li>
           <li><a href="#architecture">Architecture</a></li>
-          <li><a href="#requirements">Domain & Hosting</a></li>
+          <li><a href="#demo">Demo</a></li>
+          <li><a href="#deliverables">Deliverables</a></li>
           <li><a href="#team">Team</a></li>
         </ul>
       </nav>
@@ -31,34 +33,71 @@
         <span class="orb orb-1"></span>
         <span class="orb orb-2"></span>
         <span class="orb orb-3"></span>
+        <span class="orb orb-4"></span>
+        <span class="orb orb-5"></span>
       </div>
 
-      <div class="hero-content container">
-        <h2>Secure Natural Language to Bash Execution</h2>
-        <p>
-          ShellSentry helps users run Linux administration tasks on remote
-          machines by converting plain English requests into safe, validated
-          Bash commands.
-        </p>
-        <div class="hero-command">
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <code>$ "Check disk usage on all servers" -> df -h</code>
-        </div>
-        <div class="hero-metrics">
-          <div class="metric">
-            <span class="metric-value">7</span>
-            <span class="metric-label">Execution Stages</span>
+      <div class="hero-content container reveal">
+        <div class="hero-grid">
+          <div>
+            <span class="tag">Cybersecurity + AI Graduation Project</span>
+            <h2>Secure Natural Language to Bash Execution</h2>
+            <p>
+              ShellSentry helps users run Linux administration tasks on remote
+              machines by converting plain English requests into safe, validated
+              Bash commands.
+            </p>
+            <div class="hero-command">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <code>$ "Check disk usage on all servers" -> df -h</code>
+            </div>
+            <div class="hero-actions">
+              <a class="btn" href="#architecture">View Architecture</a>
+              <a class="btn btn-outline" href="#demo">Try Demo</a>
+            </div>
+            <div class="hero-metrics">
+              <div class="metric">
+                <span class="metric-value">7</span>
+                <span class="metric-label">Execution Stages</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">2</span>
+                <span class="metric-label">Validation Layers</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">100%</span>
+                <span class="metric-label">Security Focused</span>
+              </div>
+            </div>
           </div>
-          <div class="metric">
-            <span class="metric-value">2</span>
-            <span class="metric-label">Validation Layers</span>
-          </div>
-          <div class="metric">
-            <span class="metric-value">100%</span>
-            <span class="metric-label">Security Focused</span>
-          </div>
+          <aside class="hero-dashboard floaty">
+            <div class="dashboard-header">
+              <span class="dash-dot"></span>
+              <span class="dash-dot"></span>
+              <span class="dash-dot"></span>
+              <p>AI Command Execution Console</p>
+            </div>
+            <div class="dashboard-row">
+              <span class="label">Request</span>
+              <code>Analyze listening ports and suggest hardening.</code>
+            </div>
+            <div class="dashboard-row">
+              <span class="label">Generated</span>
+              <code>ss -tlnp && ufw status verbose</code>
+            </div>
+            <div class="dashboard-status">
+              <div><span>Validation</span><strong>Passed</strong></div>
+              <div><span>Risk Score</span><strong>Low</strong></div>
+              <div><span>Target</span><strong>3 Servers</strong></div>
+            </div>
+            <div class="dashboard-log">
+              <p>&gt; Sanitizer check complete...</p>
+              <p>&gt; Policy checker approved command.</p>
+              <p>&gt; SSH execution completed in 2.4s.</p>
+            </div>
+          </aside>
         </div>
       </div>
     </header>
@@ -117,16 +156,65 @@
         </div>
       </section>
 
-      <section id="architecture" class="section container reveal">
-        <h3 class="section-title">System Workflow</h3>
-        <ol class="timeline">
-          <li>User Authentication</li>
-          <li>Natural Language Request Submission</li>
-          <li>Input Validation and Sanitization</li>
-          <li>LLM Command/Script Generation</li>
-          <li>Security Validation (Policy Checks)</li>
-          <li>Remote Execution via SSH</li>
-          <li>Result Collection and Display</li>
+      <section id="security" class="section container reveal">
+        <h3 class="section-title">Security Features</h3>
+        <div class="grid three-col">
+          <article class="card glass">
+            <h4>Command Sanitization</h4>
+            <p>Strips risky symbols and suspicious prompt patterns before processing.</p>
+          </article>
+          <article class="card glass">
+            <h4>Input Validation</h4>
+            <p>Rejects unsafe requests using regex checks and rule-based policy gates.</p>
+          </article>
+          <article class="card glass">
+            <h4>Whitelist & Blacklist Filtering</h4>
+            <p>Allows approved commands while blocking privileged or destructive actions.</p>
+          </article>
+          <article class="card glass">
+            <h4>Secure SSH Execution</h4>
+            <p>Runs validated commands over authenticated Paramiko SSH sessions.</p>
+          </article>
+          <article class="card glass">
+            <h4>Activity Logging</h4>
+            <p>Records user requests, generated commands, and execution results for audits.</p>
+          </article>
+          <article class="card glass">
+            <h4>Role-Based Access Control</h4>
+            <p>Scopes command privileges based on user role and allowed execution mode.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="architecture" class="section section-alt reveal">
+        <div class="container">
+          <h3 class="section-title">System Architecture Diagram</h3>
+          <div class="architecture-flow" aria-label="ShellSentry architecture pipeline">
+            <article class="flow-card">User</article>
+            <span class="flow-link" aria-hidden="true"></span>
+            <article class="flow-card">Web Interface</article>
+            <span class="flow-link" aria-hidden="true"></span>
+            <article class="flow-card">AI Processing</article>
+            <span class="flow-link" aria-hidden="true"></span>
+            <article class="flow-card">Validation Engine</article>
+            <span class="flow-link" aria-hidden="true"></span>
+            <article class="flow-card">SSH Executor</article>
+            <span class="flow-link" aria-hidden="true"></span>
+            <article class="flow-card">Remote Linux Server</article>
+          </div>
+        </div>
+      </section>
+
+      <section id="workflow" class="section container reveal">
+        <h3 class="section-title">Interactive Workflow</h3>
+        <ol class="timeline stepper">
+          <li><h4>1. User Authentication</h4><p>Secure login ensures accountability and controlled access.</p></li>
+          <li><h4>2. Request Submission</h4><p>The user sends a natural language task in plain English.</p></li>
+          <li><h4>3. Input Sanitization</h4><p>Prompt-injection and malicious content checks are applied.</p></li>
+          <li><h4>4. AI Command Generation</h4><p>The LLM converts the request to a shell command or script.</p></li>
+          <li><h4>5. Validation Engine</h4><p>Whitelist and blacklist checks decide if execution is safe.</p></li>
+          <li><h4>6. Secure SSH Execution</h4><p>Approved command runs on selected Linux hosts via Paramiko.</p></li>
+          <li><h4>7. Result Reporting</h4><p>STDOUT, STDERR, status, and summaries are returned to the user.</p></li>
         </ol>
       </section>
 
@@ -150,6 +238,51 @@
                 <li>Result Presentation UI</li>
               </ul>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="section container reveal">
+        <h3 class="section-title">Demo Showcase</h3>
+        <div class="grid two-col">
+          <article class="card terminal-preview">
+            <h4>Terminal Execution Preview</h4>
+            <div class="terminal-window">
+              <p><span class="prompt">$</span> Request: "Show failed SSH logins in last hour"</p>
+              <p><span class="prompt">$</span> Generated: <code>sudo journalctl -u ssh --since "1 hour ago" | grep "Failed password"</code></p>
+              <p><span class="prompt">$</span> Validated: Allowed by security policy</p>
+              <p><span class="prompt">$</span> Output: 3 failed login attempts detected</p>
+            </div>
+          </article>
+          <article class="card">
+            <h4>Execution Response Cards</h4>
+            <div class="response-cards">
+              <div class="response-card success">
+                <strong>AI Request</strong>
+                <p>Check open ports and active network listeners.</p>
+              </div>
+              <div class="response-card validated">
+                <strong>Validated Bash</strong>
+                <p>ss -tlnp && ss -ulnp</p>
+              </div>
+              <div class="response-card done">
+                <strong>Success Response</strong>
+                <p>Execution completed on 3 servers with zero policy violations.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="future" class="section section-alt reveal">
+        <div class="container">
+          <h3 class="section-title">Future Enhancements</h3>
+          <div class="grid three-col">
+            <article class="card glass"><h4>Multi-server Orchestration</h4><p>Coordinate command execution across clustered infrastructure.</p></article>
+            <article class="card glass"><h4>Voice Command Support</h4><p>Use secure voice-to-command workflows for fast operations.</p></article>
+            <article class="card glass"><h4>AI Risk Analysis</h4><p>Predict risk score before execution using behavior-aware models.</p></article>
+            <article class="card glass"><h4>Threat Detection</h4><p>Flag suspicious execution patterns and anomaly events in real time.</p></article>
+            <article class="card glass"><h4>Audit Dashboards</h4><p>Visualize command history, policies, and team activity centrally.</p></article>
           </div>
         </div>
       </section>
@@ -179,24 +312,117 @@
         </div>
       </section>
 
+      <section id="deliverables" class="section container reveal">
+        <h3 class="section-title">Project Deliverables</h3>
+        <p class="deliverables-intro">
+          Open or download our senior project materials. Place files in the
+          <strong>documents</strong> folder with the names below, or edit these links
+          in <code>index.html</code> to point to Google Drive, YouTube, or your live
+          deployment.
+        </p>
+        <div class="grid deliverables-grid">
+            <article class="card glass deliverable-card">
+              <h4>Official Website</h4>
+              <p>
+                Visit the live ShellSentry web application or main project entry point.
+              </p>
+              <a
+                class="btn"
+                href="https://shellsentry.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit official ShellSentry website"
+                >Visit website</a
+              >
+            </article>
+            <article class="card glass deliverable-card">
+              <h4>Technical Report</h4>
+              <p>Full written report documenting design, security, and evaluation.</p>
+              <a
+                class="btn"
+                href="./documents/ShellSentry-Technical-Report.pdf"
+                download
+                aria-label="Download technical report PDF"
+                >Download report</a
+              >
+            </article>
+            <article class="card glass deliverable-card">
+              <h4>Project Poster</h4>
+              <p>Conference-style poster summarizing the project at a glance.</p>
+              <a
+                class="btn"
+                href="./documents/ShellSentry-Poster.pdf"
+                download
+                aria-label="Download project poster PDF"
+                >Download poster</a
+              >
+            </article>
+            <article class="card glass deliverable-card">
+              <h4>Presentation Slides</h4>
+              <p>Defense or showcase slides (PDF recommended for the web).</p>
+              <a
+                class="btn"
+                href="./documents/ShellSentry-Presentation.pdf"
+                download
+                aria-label="Download presentation slides PDF"
+                >Download slides</a
+              >
+            </article>
+            <article class="card glass deliverable-card">
+              <h4>Demo Video</h4>
+              <p>Screen recording walkthrough of ShellSentry in use.</p>
+              <a
+                class="btn"
+                href="./documents/ShellSentry-Demo-Video.mp4"
+                aria-label="Open demo video file"
+                >Watch demo</a
+              >
+            </article>
+            <article class="card glass deliverable-card">
+              <h4>3-Minute Explanation</h4>
+              <p>
+                A concise overview of the project goals, architecture, and demo—about
+                three minutes.
+              </p>
+              <a
+                class="btn"
+                href="./documents/ShellSentry-3-Minute-Explanation.mp4"
+                aria-label="Watch three-minute explanation video"
+                >Watch explanation</a
+              >
+            </article>
+        </div>
+      </section>
+
       <section id="team" class="section section-alt reveal">
         <div class="container">
           <h3 class="section-title">Team</h3>
           <p>Project members and supervision details:</p>
           <div class="grid three-col">
-            <article class="card">
+            <article class="card team-card">
+              <div class="avatar" aria-hidden="true">AA</div>
               <h4>1) Team Member</h4>
               <p><strong>Name:</strong> Aljazi Ali Almujaddam</p>
               <p><strong>Student ID:</strong> 202202227</p>
               <p><strong>Role:</strong> Security and Validation</p>
+              <div class="social-links">
+                <a href="https://www.linkedin.com/in/aljazi-almujaddam-554a723b4" aria-label="Aljazi LinkedIn">LinkedIn</a>
+                <a href="./ALJAZI-ALI-ALMUJADDAM-Resume.pdf" aria-label="Aljazi CV" target="_blank" rel="noopener noreferrer">CV</a>
+              </div>
             </article>
-            <article class="card">
+            <article class="card team-card">
+              <div class="avatar" aria-hidden="true">DH</div>
               <h4>2) Team Member</h4>
               <p><strong>Name:</strong> Dana Hussain Alhayki</p>
               <p><strong>Student ID:</strong> 202203431</p>
               <p><strong>Role:</strong> Frontend and User Interface</p>
+              <div class="social-links">
+                <a href="https://www.linkedin.com/in/dana-alhayki-27a299295" aria-label="Dana LinkedIn">LinkedIn</a>
+                <a href="./DANA-HUSSAIN-ALHAYKI-CV.pdf" aria-label="Dana CV" target="_blank" rel="noopener noreferrer">CV</a>
+              </div>
             </article>
-            <article class="card">
+            <article class="card team-card">
+              <div class="avatar" aria-hidden="true">AK</div>
               <h4>3) Supervisor</h4>
               <p><strong>Name:</strong> Dr. Abdullah Khalifa Aldoseri</p>
               <p><strong>Role:</strong> Project Supervisor</p>
@@ -208,8 +434,19 @@
 
     <footer class="footer">
       <div class="container footer-wrap">
-        <p>&copy; 2026 ShellSentry Senior Project. All rights reserved.</p>
-        <a href="#top">Back to top</a>
+        <div>
+          <p>&copy; 2026 ShellSentry. All rights reserved.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#demo">Demo</a>
+          <a href="#deliverables">Deliverables</a>
+          <a href="#team">Team</a>
+        </div>
+        <div class="footer-social">
+        </div>
+        <a class="back-top" href="#top" aria-label="Back to top">↑ Top</a>
       </div>
     </footer>
 
