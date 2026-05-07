@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShellSentry | Senior Project Website</title>
+    <meta
+      name="description"
+      content="ShellSentry is a secure web platform that translates natural language into validated Bash commands for remote SSH execution."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="hero" id="top">
+      <nav class="nav container">
+        <h1 class="brand">ShellSentry</h1>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#architecture">Architecture</a></li>
+          <li><a href="#requirements">Domain & Hosting</a></li>
+          <li><a href="#team">Team</a></li>
+        </ul>
+      </nav>
+      <div class="hero-orbs" aria-hidden="true">
+        <span class="orb orb-1"></span>
+        <span class="orb orb-2"></span>
+        <span class="orb orb-3"></span>
+      </div>
+
+      <div class="hero-content container">
+        <h2>Secure Natural Language to Bash Execution</h2>
+        <p>
+          ShellSentry helps users run Linux administration tasks on remote
+          machines by converting plain English requests into safe, validated
+          Bash commands.
+        </p>
+        <div class="hero-command">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <code>$ "Check disk usage on all servers" -> df -h</code>
+        </div>
+        <div class="hero-metrics">
+          <div class="metric">
+            <span class="metric-value">7</span>
+            <span class="metric-label">Execution Stages</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">2</span>
+            <span class="metric-label">Validation Layers</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">100%</span>
+            <span class="metric-label">Security Focused</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="about" class="section container reveal">
+        <h3 class="section-title">Project Overview</h3>
+        <p>
+          ShellSentry is a web-based system that accepts user requests in
+          natural language, uses an LLM to generate Linux commands, validates
+          those commands with security rules, then executes approved commands on
+          remote servers via SSH.
+        </p>
+        <div class="grid two-col">
+          <article class="card">
+            <h4>Problem</h4>
+            <p>
+              System administration requires command-line expertise and can be
+              error-prone, especially when managing multiple remote machines.
+            </p>
+          </article>
+          <article class="card">
+            <h4>Solution</h4>
+            <p>
+              Provide an AI-assisted but security-first interface that makes
+              command execution easier while preserving strict validation and
+              control.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="objectives" class="section section-alt reveal">
+        <div class="container">
+          <h3 class="section-title">Project Objectives</h3>
+          <div class="grid three-col">
+            <article class="card">
+              <h4>Natural Language Processing</h4>
+              <p>Transform user requests into Bash commands or scripts.</p>
+            </article>
+            <article class="card">
+              <h4>Security and Validation</h4>
+              <p>
+                Apply sanitization plus whitelist/blacklist checks before
+                command execution.
+              </p>
+            </article>
+            <article class="card">
+              <h4>Secure Remote Execution</h4>
+              <p>
+                Execute approved commands on one or more servers via Paramiko
+                SSH.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="architecture" class="section container reveal">
+        <h3 class="section-title">System Workflow</h3>
+        <ol class="timeline">
+          <li>User Authentication</li>
+          <li>Natural Language Request Submission</li>
+          <li>Input Validation and Sanitization</li>
+          <li>LLM Command/Script Generation</li>
+          <li>Security Validation (Policy Checks)</li>
+          <li>Remote Execution via SSH</li>
+          <li>Result Collection and Display</li>
+        </ol>
+      </section>
+
+      <section id="stack" class="section section-alt reveal">
+        <div class="container">
+          <h3 class="section-title">Technology Stack</h3>
+          <div class="grid two-col">
+            <article class="card">
+              <h4>Backend</h4>
+              <ul>
+                <li>Python Flask</li>
+                <li>Paramiko SSH</li>
+                <li>Validation and Logging Modules</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h4>Frontend</h4>
+              <ul>
+                <li>HTML, CSS, JavaScript</li>
+                <li>Responsive Web Interface</li>
+                <li>Result Presentation UI</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="requirements" class="section container reveal">
+        <h3 class="section-title">Domain, Hosting, and Professional Email</h3>
+        <p>
+          This website includes the required senior project elements and a
+          deployment plan:
+        </p>
+        <div class="grid three-col">
+          <article class="card">
+            <h4>1) Domain Name</h4>
+            <p><strong>Proposed:</strong> <span id="domain-name">shellsentry.com</span></p>
+            <p>Short, project-related, and professional.</p>
+          </article>
+          <article class="card">
+            <h4>2) Hosting</h4>
+            <p><strong>Proposed:</strong> GitHub Pages or Hostinger</p>
+            <p>Fast setup for publishing a public senior project website.</p>
+          </article>
+          <article class="card">
+            <h4>3) Professional Email</h4>
+            <p><strong>Proposed:</strong> info@shellsentry.com</p>
+            <p>Uses project domain for official team communication.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="team" class="section section-alt reveal">
+        <div class="container">
+          <h3 class="section-title">Team</h3>
+          <p>Project members and supervision details:</p>
+          <div class="grid three-col">
+            <article class="card">
+              <h4>1) Team Member</h4>
+              <p><strong>Name:</strong> Aljazi Ali Almujaddam</p>
+              <p><strong>Student ID:</strong> 202202227</p>
+              <p><strong>Role:</strong> Security and Validation</p>
+            </article>
+            <article class="card">
+              <h4>2) Team Member</h4>
+              <p><strong>Name:</strong> Dana Hussain Alhayki</p>
+              <p><strong>Student ID:</strong> 202203431</p>
+              <p><strong>Role:</strong> Frontend and User Interface</p>
+            </article>
+            <article class="card">
+              <h4>3) Supervisor</h4>
+              <p><strong>Name:</strong> Dr. Abdullah Khalifa Aldoseri</p>
+              <p><strong>Role:</strong> Project Supervisor</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-wrap">
+        <p>&copy; 2026 ShellSentry Senior Project. All rights reserved.</p>
+        <a href="#top">Back to top</a>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
