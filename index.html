@@ -18,17 +18,62 @@
   </head>
   <body>
     <header class="hero" id="top">
-      <nav class="nav container">
-        <h1 class="brand">ShellSentry</h1>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#security">Security</a></li>
-          <li><a href="#architecture">Architecture</a></li>
-          <li><a href="#demo">Demo</a></li>
-          <li><a href="#deliverables">Deliverables</a></li>
-          <li><a href="#team">Team</a></li>
-        </ul>
-      </nav>
+      <div class="container hero-header-stack">
+        <div class="institutional-header">
+          <div
+            class="institutional-brand"
+            role="group"
+            aria-label="University affiliation"
+          >
+            <img
+              class="uob-logo"
+              src="./images/uob-logo.png"
+              alt="University of Bahrain official emblem"
+              width="444"
+              height="514"
+              decoding="async"
+            />
+            <div class="institutional-text">
+              <p class="inst-name">University of Bahrain</p>
+              <p class="inst-college">College of Information Technology</p>
+              <p class="inst-department">Department of Information Systems</p>
+            </div>
+          </div>
+        </div>
+        <nav class="nav" aria-label="Primary">
+          <div class="nav-head">
+            <h1 class="brand">ShellSentry</h1>
+            <button
+              type="button"
+              class="nav-toggle"
+              id="nav-menu-toggle"
+              aria-expanded="false"
+              aria-controls="primary-nav-links"
+            >
+              <span class="nav-toggle-bars" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+              <span class="sr-only">Menu</span>
+            </button>
+          </div>
+          <ul class="nav-links" id="primary-nav-links">
+            <li><a href="#abstract">Abstract</a></li>
+            <li><a href="#about">Overview</a></li>
+            <li><a href="#objectives">Objectives</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#methodology">Methodology</a></li>
+            <li><a href="#security">Security</a></li>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#in-action">In&nbsp;Action</a></li>
+            <li><a href="#findings">Findings</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+            <li><a href="#deliverables">Deliverables</a></li>
+            <li><a href="#team">Team</a></li>
+          </ul>
+        </nav>
+      </div>
       <div class="hero-orbs" aria-hidden="true">
         <span class="orb orb-1"></span>
         <span class="orb orb-2"></span>
@@ -55,7 +100,7 @@
             </div>
             <div class="hero-actions">
               <a class="btn" href="#architecture">View Architecture</a>
-              <a class="btn btn-outline" href="#demo">Try Demo</a>
+              <a class="btn btn-outline" href="#in-action">In Action</a>
             </div>
             <div class="hero-metrics">
               <div class="metric">
@@ -103,60 +148,171 @@
     </header>
 
     <main>
-      <section id="about" class="section container reveal">
-        <h3 class="section-title">Project Overview</h3>
+      <section id="abstract" class="section page-section-band page-section-band--a reveal">
+        <div class="container">
+        <h3 class="section-title">Abstract</h3>
         <p>
-          ShellSentry is a web-based system that accepts user requests in
-          natural language, uses an LLM to generate Linux commands, validates
-          those commands with security rules, then executes approved commands on
-          remote servers via SSH.
+          ShellSentry is an authenticated web application that converts natural
+          language into validated Bash commands and executes them on remote Linux
+          hosts over SSH. It targets cybersecurity-focused educational use where
+          usability and safety must be balanced: large language models lower the
+          command-line barrier, but unconstrained generation introduces prompt abuse,
+          unsafe commands, and inconsistent multi-host behavior.
         </p>
-        <div class="grid two-col">
-          <article class="card">
-            <h4>Problem</h4>
-            <p>
-              System administration requires command-line expertise and can be
-              error-prone, especially when managing multiple remote machines.
-            </p>
-          </article>
-          <article class="card">
-            <h4>Solution</h4>
-            <p>
-              Provide an AI-assisted but security-first interface that makes
-              command execution easier while preserving strict validation and
-              control.
-            </p>
-          </article>
+        <p>
+          The implemented system combines user sessions, input validation, intent
+          routing for safe built-in modes (script archive and managed cron), host-aware
+          LLM generation with optional RAG grounding, whitelist and blacklist policy
+          checks (including optional read-only execution), parallel audited SSH
+          execution, and structured reporting with optional AI explanations of
+          technical output.
+        </p>
         </div>
       </section>
 
-      <section id="objectives" class="section section-alt reveal">
+      <section id="about" class="section page-section-band page-section-band--b reveal">
         <div class="container">
-          <h3 class="section-title">Project Objectives</h3>
-          <div class="grid three-col">
+          <h3 class="section-title">Project Overview</h3>
+          <p>
+            ShellSentry is a web-based system that accepts user requests in natural
+            language, uses an LLM to generate Linux commands, validates those commands
+            with security rules, then executes approved commands on remote servers via
+            SSH.
+          </p>
+          <div class="grid two-col">
             <article class="card">
-              <h4>Natural Language Processing</h4>
-              <p>Transform user requests into Bash commands or scripts.</p>
-            </article>
-            <article class="card">
-              <h4>Security and Validation</h4>
+              <h4>The Problem</h4>
               <p>
-                Apply sanitization plus whitelist/blacklist checks before
-                command execution.
+                Administrators and security teams run repetitive Linux commands across
+                many servers. That creates a usability gap (strong CLI expertise is
+                required) and a security gap (mistakes, unsafe commands, or misuse can
+                impact critical systems). LLMs reduce the usability barrier, but
+                executing raw model output amplifies risks such as prompt injection,
+                privilege misuse, and unpredictable behavior across hosts.
               </p>
             </article>
             <article class="card">
-              <h4>Secure Remote Execution</h4>
+              <h4>Our Approach</h4>
               <p>
-                Execute approved commands on one or more servers via Paramiko
-                SSH.
+                ShellSentry closes that gap with defense in depth: validated inputs,
+                policy-gated commands, host context before generation, auditable
+                multi-host execution, and controlled reuse through a remote script
+                archive and safe managed scheduling—without replacing human judgment for
+                production-grade deployments.
               </p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="security" class="section container reveal">
+      <section id="objectives" class="section page-section-band page-section-band--c reveal">
+        <div class="container">
+        <h3 class="section-title">Project Objectives</h3>
+        <div class="grid three-col">
+          <article class="card glass">
+            <h4>Natural language to Bash</h4>
+            <p>Convert plain-English requests into executable Bash commands or scripts.</p>
+          </article>
+          <article class="card glass">
+            <h4>Safety before and after generation</h4>
+            <p>Enforce sanitization, intent routing, and command policy before remote execution.</p>
+          </article>
+          <article class="card glass">
+            <h4>Multi-host SSH execution</h4>
+            <p>Execute approved commands on one or many Linux targets in parallel via Paramiko.</p>
+          </article>
+          <article class="card glass">
+            <h4>Clear dual-level reporting</h4>
+            <p>Return structured results for technical review plus plain-language summaries for operators.</p>
+          </article>
+          <article class="card glass">
+            <h4>Accountability</h4>
+            <p>Persist auditable execution metadata and outputs through application logging.</p>
+          </article>
+          <article class="card glass">
+            <h4>Safer operational reuse</h4>
+            <p>Support archived script listing, policy-gated re-execution, explanation, and managed cron scheduling.</p>
+          </article>
+        </div>
+        </div>
+      </section>
+
+      <section id="features" class="section page-section-band page-section-band--a reveal">
+        <div class="container">
+          <h3 class="section-title">Key Implemented Features</h3>
+          <div class="grid three-col">
+            <article class="card glass">
+              <h4>Secure NL-to-Bash execution</h4>
+              <p>
+                Natural language tasks, host-aware generation, parallel multi-server SSH,
+                and JSON responses with summaries and formatted technical reports.
+              </p>
+            </article>
+            <article class="card glass">
+              <h4>Script archive lifecycle</h4>
+              <p>
+                Multi-line scripts are saved remotely under a configurable home directory
+                with timestamped <code>ShellSentry_*.sh</code> names; users can list scripts
+                (including date scopes), re-run, or request an LLM explanation of saved content.
+              </p>
+            </article>
+            <article class="card glass">
+              <h4>Safe re-execution</h4>
+              <p>
+                Strict <code>*.sh</code> basename rules, per-server existence checks, and
+                re-validation of script contents against the current policy before any rerun.
+              </p>
+            </article>
+            <article class="card glass">
+              <h4>Safe Cron mode</h4>
+              <p>
+                List only ShellSentry-managed cron lines or schedule updates for archived
+                scripts; destructive crontab removal intents are blocked at the intent layer.
+              </p>
+            </article>
+            <article class="card glass">
+              <h4>Reliability and UX</h4>
+              <p>
+                SSH port pre-checks, bounded parallel workers, independent per-host outcomes,
+                LLM retries with backoff for timeouts and HTTP 429, and clearer UI error context.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="methodology" class="section page-section-band page-section-band--b reveal">
+        <div class="container">
+        <h3 class="section-title">Methodology &amp; Approach</h3>
+        <article class="card glass methodology-card">
+          <p>
+            The project followed an iterative secure-engineering methodology: specify a
+            threat-informed pipeline first, implement modules against that design (Flask API,
+            security layer, LLM client, validator, SSH executor, RAG pipeline, formatting and
+            logging), then validate behavior in a controlled multi-host lab. Each stage in the
+            live system mirrors a documented responsibility—from authenticated
+            <code>POST /api/execute</code> orchestration through optional AI explanations of
+            reports and scripts.
+          </p>
+          <p>
+            Primary execution paths are (1) built-in safe modes for script archive and managed
+            cron, or (2) standard flow: host context probe (OS, services, listening sockets per
+            host), optional RAG retrieval of trusted examples, OpenAI-compatible chat generation
+            with output cleanup, command validation and normalization, parallel SSH execution
+            with automatic archival of multi-line scripts, and response formatting with optional
+            second-pass natural-language explanation.
+          </p>
+          <p>
+            For the step-by-step operator view of the pipeline, see the
+            <a href="#workflow">Interactive Workflow</a>; for module-level detail, see the
+            ShellSentry system documentation in the repository.
+          </p>
+        </article>
+        </div>
+      </section>
+
+      <section id="security" class="section page-section-band page-section-band--c reveal">
+        <div class="container">
         <h3 class="section-title">Security Features</h3>
         <div class="grid three-col">
           <article class="card glass">
@@ -180,13 +336,18 @@
             <p>Records user requests, generated commands, and execution results for audits.</p>
           </article>
           <article class="card glass">
-            <h4>Role-Based Access Control</h4>
-            <p>Scopes command privileges based on user role and allowed execution mode.</p>
+            <h4>Read-only execution mode</h4>
+            <p>
+              Deployment can default to read-only command profiles so routine checks are
+              less likely to mutate systems—tightened further by whitelist, blacklist, and
+              normalization rules.
+            </p>
           </article>
+        </div>
         </div>
       </section>
 
-      <section id="architecture" class="section section-alt reveal">
+      <section id="architecture" class="section page-section-band page-section-band--a reveal">
         <div class="container">
           <h3 class="section-title">System Architecture Diagram</h3>
           <div class="architecture-flow" aria-label="ShellSentry architecture pipeline">
@@ -205,45 +366,83 @@
         </div>
       </section>
 
-      <section id="workflow" class="section container reveal">
+      <section id="workflow" class="section page-section-band page-section-band--b reveal">
+        <div class="container">
         <h3 class="section-title">Interactive Workflow</h3>
         <ol class="timeline stepper">
-          <li><h4>1. User Authentication</h4><p>Secure login ensures accountability and controlled access.</p></li>
-          <li><h4>2. Request Submission</h4><p>The user sends a natural language task in plain English.</p></li>
-          <li><h4>3. Input Sanitization</h4><p>Prompt-injection and malicious content checks are applied.</p></li>
-          <li><h4>4. AI Command Generation</h4><p>The LLM converts the request to a shell command or script.</p></li>
-          <li><h4>5. Validation Engine</h4><p>Whitelist and blacklist checks decide if execution is safe.</p></li>
-          <li><h4>6. Secure SSH Execution</h4><p>Approved command runs on selected Linux hosts via Paramiko.</p></li>
-          <li><h4>7. Result Reporting</h4><p>STDOUT, STDERR, status, and summaries are returned to the user.</p></li>
+          <li>
+            <h4>1. Authentication</h4>
+            <p>Session-protected access ties actions to signed-in users for accountability.</p>
+          </li>
+          <li>
+            <h4>2. Request and targets</h4>
+            <p>Users submit a natural language task and optionally select servers; otherwise configured defaults apply.</p>
+          </li>
+          <li>
+            <h4>3. Input security validation</h4>
+            <p>The security layer screens unsafe patterns and policy violations before any routing or generation.</p>
+          </li>
+          <li>
+            <h4>4. Intent routing (safe modes)</h4>
+            <p>Safe Cron intents (list or schedule managed entries) and Script Archive intents (list, rerun, explain) short-circuit to dedicated SSH helpers when matched.</p>
+          </li>
+          <li>
+            <h4>5. Host probe and RAG</h4>
+            <p>For standard NL-to-Bash, each host is probed in parallel for OS, services, and sockets; trusted examples may be retrieved to ground the LLM prompt.</p>
+          </li>
+          <li>
+            <h4>6. LLM generation and cleanup</h4>
+            <p>An OpenAI-compatible model proposes commands per host context; markdown wrappers and unsafe prompt leakage are stripped.</p>
+          </li>
+          <li>
+            <h4>7. Command validation</h4>
+            <p>Whitelist, blacklist, read-only rules, and normalization gate execution and shape the final command string.</p>
+          </li>
+          <li>
+            <h4>8. Parallel SSH execution</h4>
+            <p>Paramiko runs approved commands independently per host; multi-line scripts are archived remotely before execution when applicable.</p>
+          </li>
+          <li>
+            <h4>9. Reporting and audit</h4>
+            <p>Structured JSON includes summaries and technical reports, optional AI explanations, and persistent execution logging for review.</p>
+          </li>
         </ol>
+        </div>
       </section>
 
-      <section id="stack" class="section section-alt reveal">
+      <section id="stack" class="section page-section-band page-section-band--c reveal">
         <div class="container">
           <h3 class="section-title">Technology Stack</h3>
           <div class="grid two-col">
             <article class="card">
               <h4>Backend</h4>
               <ul>
-                <li>Python Flask</li>
-                <li>Paramiko SSH</li>
-                <li>Validation and Logging Modules</li>
+                <li>Python, Flask, Flask-Login, Flask-SQLAlchemy</li>
+                <li>Paramiko SSH and parallel execution helpers</li>
+                <li>Validation, RAG (<code>sentence-transformers</code> + FAISS), and logging modules</li>
               </ul>
             </article>
             <article class="card">
               <h4>Frontend</h4>
               <ul>
-                <li>HTML, CSS, JavaScript</li>
-                <li>Responsive Web Interface</li>
-                <li>Result Presentation UI</li>
+                <li>Jinja templates, HTML, CSS, and vanilla JavaScript</li>
+                <li>Dashboard UI for summaries, AI explanations, and expandable technical reports</li>
+                <li>Responsive layout and actionable error surfacing</li>
               </ul>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="demo" class="section container reveal">
-        <h3 class="section-title">Demo Showcase</h3>
+      <section id="in-action" class="section page-section-band page-section-band--a reveal">
+        <div class="container">
+        <h3 class="section-title">ShellSentry in Action</h3>
+        <p class="in-action-lead">
+          Representative flow: a natural language request is translated, validated, and
+          reflected back to the operator through the same response patterns the live
+          dashboard consumes (<code>natural_language_summary</code>, validated command, and
+          optional expanded technical report).
+        </p>
         <div class="grid two-col">
           <article class="card terminal-preview">
             <h4>Terminal Execution Preview</h4>
@@ -272,12 +471,73 @@
             </div>
           </article>
         </div>
+        </div>
       </section>
 
-      <section id="future" class="section section-alt reveal">
+      <section id="findings" class="section page-section-band page-section-band--b reveal">
         <div class="container">
-          <h3 class="section-title">Future Enhancements</h3>
-          <div class="grid three-col">
+        <h3 class="section-title">Key Findings</h3>
+        <div class="grid three-col findings-grid">
+          <article class="card glass">
+            <h4>LLM assistance requires policy gates.</h4>
+            <p>
+              Even with prompt hygiene and cleaned model output, deterministic whitelist,
+              blacklist, read-only, and normalization rules remain essential before any remote
+              execution.
+            </p>
+          </article>
+          <article class="card glass">
+            <h4>Host context materially improves relevance.</h4>
+            <p>
+              Parallel probes that capture OS, services, and sockets per target reduce generic
+              or hallucinated commands compared with single-prompt, host-agnostic generation.
+            </p>
+          </article>
+          <article class="card glass">
+            <h4>Reuse needs its own threat model.</h4>
+            <p>
+              Archiving scripts and supporting cron scheduling only stayed safe when filenames,
+              existence checks, managed tags, and re-validation of stored content were treated
+              as first-class controls—not add-ons.
+            </p>
+          </article>
+          <article class="card glass">
+            <h4>Defense in depth is observable end-to-end.</h4>
+            <p>
+              Authentication, input validation, intent routing, generation, validation,
+              execution, structured reporting, and audit logging each catch different failure
+              modes; no single layer is sufficient on its own.
+            </p>
+          </article>
+          <article class="card glass">
+            <h4>Probabilistic components keep residual risk.</h4>
+            <p>
+              Policies mitigate most abuse, yet LLM behavior remains non-deterministic; broader
+              production use would still demand hardened secrets management, TLS, SIEM feeds,
+              and stricter policy profiles as called out in the project scope notes.
+            </p>
+          </article>
+        </div>
+        </div>
+      </section>
+
+      <section id="conclusion" class="section page-section-band page-section-band--c reveal">
+        <div class="container">
+          <h3 class="section-title">Conclusion &amp; Future Work</h3>
+          <p>
+            ShellSentry demonstrates a practical, security-aware path to AI-assisted Linux
+            operations: beyond translating natural language, the architecture delivers
+            host-aware generation, auditable multi-host execution, governed script reuse, and
+            bounded cron automation while remaining honest about lab scope and residual LLM
+            risk.
+          </p>
+          <h4 class="subsection-title">Future enhancements</h4>
+          <p>
+            Roadmap ideas from the project description include role-based command policies,
+            dry-run simulation before execution, stronger integrity guarantees for archived
+            scripts, richer audit dashboards with SIEM handoff, and broader automation targets.
+          </p>
+          <div class="grid three-col conclusion-future-grid">
             <article class="card glass"><h4>Multi-server Orchestration</h4><p>Coordinate command execution across clustered infrastructure.</p></article>
             <article class="card glass"><h4>Voice Command Support</h4><p>Use secure voice-to-command workflows for fast operations.</p></article>
             <article class="card glass"><h4>AI Risk Analysis</h4><p>Predict risk score before execution using behavior-aware models.</p></article>
@@ -287,7 +547,8 @@
         </div>
       </section>
 
-      <section id="requirements" class="section container reveal">
+      <section id="requirements" class="section page-section-band page-section-band--a reveal">
+        <div class="container">
         <h3 class="section-title">Domain, Hosting, and Professional Email</h3>
         <p>
           This website includes the required senior project elements and a
@@ -296,29 +557,31 @@
         <div class="grid three-col">
           <article class="card">
             <h4>1) Domain Name</h4>
-            <p><strong>Proposed:</strong> <span id="domain-name">shellsentry.com</span></p>
+            <p>
+              <strong>Proposed:</strong>
+              <a id="domain-name" href="https://shellsentry.site/">https://shellsentry.site/</a>
+            </p>
             <p>Short, project-related, and professional.</p>
           </article>
           <article class="card">
             <h4>2) Hosting</h4>
-            <p><strong>Proposed:</strong> GitHub Pages or Hostinger</p>
-            <p>Fast setup for publishing a public senior project website.</p>
+            <p><strong>Proposed:</strong> GitHub</p>
+            <p>Static site published with GitHub Pages from the project repository.</p>
           </article>
           <article class="card">
             <h4>3) Professional Email</h4>
-            <p><strong>Proposed:</strong> info@shellsentry.com</p>
-            <p>Uses project domain for official team communication.</p>
+            <p><strong>Proposed:</strong> info@shellsentry.site</p>
+            <p>Uses the project domain for official team communication.</p>
           </article>
+        </div>
         </div>
       </section>
 
-      <section id="deliverables" class="section container reveal">
+      <section id="deliverables" class="section page-section-band page-section-band--b reveal">
+        <div class="container">
         <h3 class="section-title">Project Deliverables</h3>
         <p class="deliverables-intro">
-          Open or download our senior project materials. Place files in the
-          <strong>documents</strong> folder with the names below, or edit these links
-          in <code>index.html</code> to point to Google Drive, YouTube, or your live
-          deployment.
+          Open or download our senior project materials.
         </p>
         <div class="grid deliverables-grid">
             <article class="card glass deliverable-card">
@@ -328,7 +591,7 @@
               </p>
               <a
                 class="btn"
-                href="https://shellsentry.com"
+                href="https://shellsentry.site/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit official ShellSentry website"
@@ -392,40 +655,191 @@
               >
             </article>
         </div>
+        </div>
       </section>
 
-      <section id="team" class="section section-alt reveal">
+      <section id="team" class="section page-section-band page-section-band--c reveal">
         <div class="container">
-          <h3 class="section-title">Team</h3>
-          <p>Project members and supervision details:</p>
-          <div class="grid three-col">
+          <h3 class="section-title">Project Team &amp; Instructor</h3>
+          <p class="team-intro">Development team members and academic supervision.</p>
+
+          <svg class="team-icons-defs" aria-hidden="true" focusable="false" width="0" height="0">
+            <defs>
+              <symbol id="team-icon-mail" viewBox="0 0 24 24">
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </symbol>
+              <symbol id="team-icon-cv" viewBox="0 0 24 24">
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"
+                />
+                <path fill="none" stroke="currentColor" stroke-width="2" d="M14 2v6h6" />
+                <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M8 13h8M8 17h8M8 9h2" />
+              </symbol>
+              <symbol id="team-icon-faculty" viewBox="0 0 24 24">
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
+                />
+              </symbol>
+            </defs>
+          </svg>
+
+          <h4 class="team-subheading">Development team</h4>
+          <div class="grid two-col team-dev-grid">
             <article class="card team-card">
               <div class="avatar" aria-hidden="true">AA</div>
-              <h4>1) Team Member</h4>
-              <p><strong>Name:</strong> Aljazi Ali Almujaddam</p>
+              <p><strong>Aljazi Ali Almujaddam</strong></p>
               <p><strong>Student ID:</strong> 202202227</p>
               <p><strong>Role:</strong> Security and Validation</p>
-              <div class="social-links">
-                <a href="https://www.linkedin.com/in/aljazi-almujaddam-554a723b4" aria-label="Aljazi LinkedIn">LinkedIn</a>
-                <a href="./ALJAZI-ALI-ALMUJADDAM-Resume.pdf" aria-label="Aljazi CV" target="_blank" rel="noopener noreferrer">CV</a>
-              </div>
+              <nav class="team-icon-strip" aria-label="Contact and profiles for Aljazi">
+                <a
+                  class="team-icon-link"
+                  href="mailto:aljaziali04@gmail.com"
+                  aria-label="Email Aljazi Ali Almujaddam"
+                  title="Email"
+                >
+                  <svg class="team-icon-svg" width="24" height="24" aria-hidden="true">
+                    <use href="#team-icon-mail" />
+                  </svg>
+                </a>
+                <a
+                  class="team-icon-link team-icon-link--linkedin"
+                  href="https://www.linkedin.com/in/aljazi-almujaddam-554a723b4"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Aljazi LinkedIn profile"
+                  title="LinkedIn profile"
+                >
+                  <svg class="team-icon-svg team-icon-svg--linkedin" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      fill="currentColor"
+                      d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-9.5 7.5H7V17h2.5v-6.5zm-1.25-2a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zM17 17h-2.4v-3.2c0-.8-.02-1.84-1.12-1.84-1.12 0-1.29.88-1.29 1.78V17H9.8V9.5h2.3v1h.03c.32-.6 1.1-1.24 2.27-1.24 2.43 0 2.88 1.6 2.88 3.68V17z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  class="team-icon-link"
+                  href="./ALJAZI-ALI-ALMUJADDAM-Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Download Aljazi CV (PDF)"
+                  title="CV (PDF)"
+                >
+                  <svg class="team-icon-svg" width="24" height="24" aria-hidden="true">
+                    <use href="#team-icon-cv" />
+                  </svg>
+                </a>
+              </nav>
             </article>
             <article class="card team-card">
               <div class="avatar" aria-hidden="true">DH</div>
-              <h4>2) Team Member</h4>
-              <p><strong>Name:</strong> Dana Hussain Alhayki</p>
+              <p><strong>Dana Hussain Alhayki</strong></p>
               <p><strong>Student ID:</strong> 202203431</p>
               <p><strong>Role:</strong> Frontend and User Interface</p>
-              <div class="social-links">
-                <a href="https://www.linkedin.com/in/dana-alhayki-27a299295" aria-label="Dana LinkedIn">LinkedIn</a>
-                <a href="./DANA-HUSSAIN-ALHAYKI-CV.pdf" aria-label="Dana CV" target="_blank" rel="noopener noreferrer">CV</a>
-              </div>
+              <nav class="team-icon-strip" aria-label="Contact and profiles for Dana">
+                <a
+                  class="team-icon-link"
+                  href="mailto:Danahussainalhayki@gmail.com"
+                  aria-label="Email Dana Hussain Alhayki"
+                  title="Email"
+                >
+                  <svg class="team-icon-svg" width="24" height="24" aria-hidden="true">
+                    <use href="#team-icon-mail" />
+                  </svg>
+                </a>
+                <a
+                  class="team-icon-link team-icon-link--linkedin"
+                  href="https://www.linkedin.com/in/dana-alhayki-27a299295"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Dana LinkedIn profile"
+                  title="LinkedIn profile"
+                >
+                  <svg class="team-icon-svg team-icon-svg--linkedin" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      fill="currentColor"
+                      d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-9.5 7.5H7V17h2.5v-6.5zm-1.25-2a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zM17 17h-2.4v-3.2c0-.8-.02-1.84-1.12-1.84-1.12 0-1.29.88-1.29 1.78V17H9.8V9.5h2.3v1h.03c.32-.6 1.1-1.24 2.27-1.24 2.43 0 2.88 1.6 2.88 3.68V17z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  class="team-icon-link"
+                  href="./DANA-HUSSAIN-ALHAYKI-CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Download Dana CV (PDF)"
+                  title="CV (PDF)"
+                >
+                  <svg class="team-icon-svg" width="24" height="24" aria-hidden="true">
+                    <use href="#team-icon-cv" />
+                  </svg>
+                </a>
+              </nav>
             </article>
-            <article class="card team-card">
-              <div class="avatar" aria-hidden="true">AK</div>
-              <h4>3) Supervisor</h4>
-              <p><strong>Name:</strong> Dr. Abdullah Khalifa Aldoseri</p>
-              <p><strong>Role:</strong> Project Supervisor</p>
+          </div>
+
+          <h4 class="team-subheading">Project supervisor</h4>
+          <div class="team-supervisor-row">
+            <article class="card team-card team-card--supervisor">
+              <span class="team-role-badge">Supervisor</span>
+              <div class="avatar avatar--supervisor" aria-hidden="true">AK</div>
+              <p><strong>Dr. Abdullah Khalifa Aldoseri</strong></p>
+              <p><strong>Role:</strong> Project supervisor and academic instructor</p>
+              <nav class="team-icon-strip" aria-label="Supervisor contact and official profiles">
+                <a
+                  class="team-icon-link team-icon-link--accent"
+                  href="mailto:akaldoseri@uob.edu.bh"
+                  aria-label="Email Dr. Abdullah Khalifa Aldoseri"
+                  title="Email"
+                >
+                  <svg class="team-icon-svg" width="24" height="24" aria-hidden="true">
+                    <use href="#team-icon-mail" />
+                  </svg>
+                </a>
+                <a
+                  class="team-icon-link team-icon-link--accent"
+                  href="https://cit.uob.edu.bh/faculty/faculty-profile/?faculty=mr-abdullah-al-doseri"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Dr. Aldoseri UOB faculty profile (College of Information Technology)"
+                  title="UOB faculty profile"
+                >
+                  <svg class="team-icon-svg" width="24" height="24" aria-hidden="true">
+                    <use href="#team-icon-faculty" />
+                  </svg>
+                </a>
+                <a
+                  class="team-icon-link team-icon-link--accent team-icon-link--linkedin"
+                  href="https://www.linkedin.com/in/dr-abdullah-aldoseri-0ab6706a"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Dr. Aldoseri LinkedIn profile"
+                  title="LinkedIn profile"
+                >
+                  <svg class="team-icon-svg team-icon-svg--linkedin" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      fill="currentColor"
+                      d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-9.5 7.5H7V17h2.5v-6.5zm-1.25-2a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zM17 17h-2.4v-3.2c0-.8-.02-1.84-1.12-1.84-1.12 0-1.29.88-1.29 1.78V17H9.8V9.5h2.3v1h.03c.32-.6 1.1-1.24 2.27-1.24 2.43 0 2.88 1.6 2.88 3.68V17z"
+                    />
+                  </svg>
+                </a>
+              </nav>
             </article>
           </div>
         </div>
@@ -438,9 +852,16 @@
           <p>&copy; 2026 ShellSentry. All rights reserved.</p>
         </div>
         <div class="footer-links">
-          <a href="#about">About</a>
+          <a href="#abstract">Abstract</a>
+          <a href="#about">Overview</a>
+          <a href="#objectives">Objectives</a>
+          <a href="#features">Features</a>
+          <a href="#methodology">Methodology</a>
+          <a href="#security">Security</a>
           <a href="#architecture">Architecture</a>
-          <a href="#demo">Demo</a>
+          <a href="#in-action">In Action</a>
+          <a href="#findings">Findings</a>
+          <a href="#conclusion">Conclusion</a>
           <a href="#deliverables">Deliverables</a>
           <a href="#team">Team</a>
         </div>
