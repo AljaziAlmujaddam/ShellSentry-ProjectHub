@@ -1,10 +1,3 @@
-const domainNameElement = document.getElementById("domain-name");
-
-if (domainNameElement) {
-  const preferredDomain = "https://shellsentry.site/";
-  domainNameElement.textContent = preferredDomain;
-}
-
 const revealElements = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window && revealElements.length > 0) {
@@ -130,7 +123,6 @@ const CARD_GRID_SELECTORS = [
   "#security .grid.three-col",
   "#findings .findings-grid",
   "#conclusion .conclusion-future-grid",
-  "#requirements .grid.three-col",
   "#objectives .grid.three-col",
   "#about .grid.two-col",
   "#stack .grid.two-col",
@@ -143,7 +135,6 @@ const CARD_GRID_SECTION_IDS = [
   "security",
   "findings",
   "conclusion",
-  "requirements",
   "objectives",
   "about",
   "stack",

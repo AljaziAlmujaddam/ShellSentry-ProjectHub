@@ -38,6 +38,8 @@ body {
   background: radial-gradient(circle at top right, #ffd0ec, #fdf7fc 40%);
   line-height: 1.6;
   position: relative;
+  text-align: justify;
+  hyphens: auto;
 }
 
 body::before {
@@ -1005,17 +1007,19 @@ body::before {
   color: #f6dff0;
   border-radius: 11px;
   border: 1px solid rgba(255, 208, 236, 0.2);
-  padding: 0.8rem;
+  padding: 1rem 0.9rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
 }
 
 .terminal-window p {
   margin: 0;
   font-size: 0.8rem;
+  line-height: 1.65;
   overflow-wrap: anywhere;
-}
-
-.terminal-window p + p {
-  margin-top: 0.4rem;
+  text-align: left;
 }
 
 .prompt {
@@ -1105,7 +1109,6 @@ body::before {
 }
 
 .team-gratitude {
-  text-align: left;
   padding: 1rem 1.15rem 1.1rem;
   border: 1px solid rgba(129, 104, 157, 0.28);
   border-radius: 14px;
@@ -1341,6 +1344,43 @@ body::before {
   margin: 0;
 }
 
+/* Keep controls and compact UI readable; body text stays justified */
+.nav,
+.nav a,
+.footer-links,
+.footer-links a,
+.footer-social,
+.footer-social a,
+.btn,
+.back-top,
+.tag,
+.hero-actions,
+.dashboard-status,
+.dashboard-status div,
+pre,
+code {
+  text-align: center;
+}
+
+.nav,
+.nav a {
+  text-align: left;
+}
+
+.footer-meta p + p {
+  margin-top: 0.35rem;
+}
+
+.footer-meta a {
+  color: #ffd0ec;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.footer-meta a:hover {
+  color: #fff;
+}
+
 .footer small {
   color: #f3d9ec;
 }
@@ -1417,7 +1457,6 @@ body::before {
 }
 
 /* Flex column so equalized min-heights fill evenly with body content */
-#requirements .grid.three-col article.card,
 #objectives .grid.three-col article.card,
 #about .grid.two-col article.card,
 #stack .grid.two-col article.card,
@@ -1428,7 +1467,6 @@ body::before {
   box-sizing: border-box;
 }
 
-#requirements .grid.three-col article.card > p:last-of-type,
 #objectives .grid.three-col article.card > p:last-of-type,
 #about .grid.two-col article.card > p:last-of-type {
   flex-grow: 1;
@@ -1443,6 +1481,9 @@ body::before {
 #in-action .grid.two-col article.card.terminal-preview .terminal-window {
   flex: 1 1 auto;
   min-height: 0;
+  justify-content: space-evenly;
+  gap: 1rem;
+  padding: 1.1rem 0.95rem;
 }
 
 #in-action .grid.two-col article.card:not(.terminal-preview) .response-cards {
@@ -1453,6 +1494,8 @@ body::before {
 #team .team-dev-grid article.team-card {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   min-height: 0;
   box-sizing: border-box;
   padding: 0.75rem 0.9rem 0.85rem;
@@ -1464,6 +1507,8 @@ body::before {
 }
 
 #team .team-dev-grid article.team-card .team-icon-strip {
+  width: 100%;
+  justify-content: center;
   margin-top: 0.65rem;
   padding-top: 0.45rem;
 }
