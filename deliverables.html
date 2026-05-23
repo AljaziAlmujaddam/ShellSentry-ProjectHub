@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShellSentry | Senior Project Website</title>
+    <title>Project Deliverables | ShellSentry</title>
     <meta
       name="description"
       content="ShellSentry is a secure web platform that translates natural language into validated Bash commands for remote SSH execution."
@@ -16,8 +16,8 @@
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body class="page-home">
-<header class="hero" id="top">
+  <body class="page-inner">
+    <header class="site-header" id="top">
       <div class="container hero-header-stack">
         <div class="institutional-header">
           <div
@@ -59,7 +59,7 @@
             </button>
           </div>
           <ul class="nav-links" id="primary-nav-links">
-            <li><a href="./index.html" aria-current="page">Home</a></li>
+            <li><a href="./index.html">Home</a></li>
             <li><a href="./overview.html">Overview</a></li>
             <li><a href="./features.html">Features</a></li>
             <li><a href="./methodology.html">Methodology</a></li>
@@ -67,83 +67,86 @@
             <li><a href="./in-action.html">In&nbsp;Action</a></li>
             <li><a href="./findings.html">Findings</a></li>
             <li><a href="./conclusion.html">Conclusion</a></li>
-            <li><a href="./deliverables.html">Deliverables</a></li>
+            <li><a href="./deliverables.html" aria-current="page">Deliverables</a></li>
             <li><a href="./team.html">Team</a></li>
           </ul>
         </nav>
       </div>
-      <div class="hero-orbs" aria-hidden="true">
-        <span class="orb orb-1"></span>
-        <span class="orb orb-2"></span>
-        <span class="orb orb-3"></span>
-        <span class="orb orb-4"></span>
-        <span class="orb orb-5"></span>
-      </div>
-
-      <div class="hero-content container reveal">
-        <div class="hero-grid">
-          <div>
-            <span class="tag">Cybersecurity + AI Graduation Project</span>
-            <h2>Secure Natural Language to Bash Execution</h2>
-            <p>
-              ShellSentry helps users run Linux administration tasks on remote
-              machines by converting plain English requests into safe, validated
-              Bash commands.
-            </p>
-            <div class="hero-command">
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <code>$ "Check disk usage on all servers" -> df -h</code>
-            </div>
-            <div class="hero-actions">
-              <a class="btn" href="./architecture.html">View Architecture</a>
-              <a class="btn btn-outline" href="./in-action.html">In Action</a>
-            </div>
-            <div class="hero-metrics">
-              <div class="metric">
-                <span class="metric-value">7</span>
-                <span class="metric-label">Execution Stages</span>
-              </div>
-              <div class="metric">
-                <span class="metric-value">2</span>
-                <span class="metric-label">Validation Layers</span>
-              </div>
-              <div class="metric">
-                <span class="metric-value">100%</span>
-                <span class="metric-label">Security Focused</span>
-              </div>
-            </div>
-          </div>
-          <aside class="hero-dashboard floaty">
-            <div class="dashboard-header">
-              <span class="dash-dot"></span>
-              <span class="dash-dot"></span>
-              <span class="dash-dot"></span>
-              <p>AI Command Execution Console</p>
-            </div>
-            <div class="dashboard-row">
-              <span class="label">Request</span>
-              <code>Analyze listening ports and suggest hardening.</code>
-            </div>
-            <div class="dashboard-row">
-              <span class="label">Generated</span>
-              <code>ss -tlnp && ufw status verbose</code>
-            </div>
-            <div class="dashboard-status">
-              <div><span>Validation</span><strong>Passed</strong></div>
-              <div><span>Risk Score</span><strong>Low</strong></div>
-              <div><span>Target</span><strong>3 Servers</strong></div>
-            </div>
-            <div class="dashboard-log">
-              <p>&gt; Sanitizer check complete...</p>
-              <p>&gt; Policy checker approved command.</p>
-              <p>&gt; SSH execution completed in 2.4s.</p>
-            </div>
-          </aside>
-        </div>
-      </div>
     </header>
+    <main>
+      <section id="deliverables" class="section page-section-band page-section-band--b reveal">
+        <div class="container">
+        <h3 class="section-title">Project Deliverables</h3>
+        <p class="deliverables-intro">
+          Open or download our senior project materials.
+        </p>
+        <div class="grid deliverables-grid">
+            <article class="card glass deliverable-card">
+              <h4>Official Website</h4>
+              <a
+                class="btn"
+                href="https://github.com/Danaalhayki/ShellSentry.git"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open ShellSentry repository on GitHub in a new tab"
+                >View on GitHub</a
+              >
+            </article>
+            <article class="card glass deliverable-card">
+              <h4>Technical Report</h4>
+              <a
+                class="btn"
+                href="./documents/ShellSentry-Technical-Report.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open ShellSentry senior technical report PDF in a new tab"
+                >Open report</a
+              >
+            </article>
+            <article class="card glass deliverable-card">
+              <h4>Project Poster</h4>
+              <a
+                class="btn"
+                href="./documents/ShellSentry-Poster.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open ShellSentry senior project poster PDF in a new tab"
+                >Open poster</a
+              >
+            </article>
+            <article class="card glass deliverable-card">
+              <h4>Presentation Slides</h4>
+              <a
+                class="btn"
+                href="./documents/Senior%20Project%20Presentation%20.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open ShellSentry senior presentation slides PDF in a new tab"
+                >Open slides</a
+              >
+            </article>
+            <article class="card glass deliverable-card">
+              <h4>Demo Video</h4>
+              <a
+                class="btn"
+                href="./documents/ShellSentry-Demo-Video.mp4"
+                aria-label="Open demo video file"
+                >Watch demo</a
+              >
+            </article>
+            <article class="card glass deliverable-card">
+              <h4>3-Minute Explanation</h4>
+              <a
+                class="btn"
+                href="./documents/ShellSentry-3-Minute-Explanation.mp4"
+                aria-label="Watch three-minute explanation video"
+                >Watch explanation</a
+              >
+            </article>
+        </div>
+        </div>
+      </section>
+    </main>
 
     <footer class="footer">
       <div class="container footer-wrap">

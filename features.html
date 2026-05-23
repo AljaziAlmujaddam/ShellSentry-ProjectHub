@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShellSentry | Senior Project Website</title>
+    <title>Features & Security | ShellSentry</title>
     <meta
       name="description"
       content="ShellSentry is a secure web platform that translates natural language into validated Bash commands for remote SSH execution."
@@ -16,8 +16,8 @@
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body class="page-home">
-<header class="hero" id="top">
+  <body class="page-inner">
+    <header class="site-header" id="top">
       <div class="container hero-header-stack">
         <div class="institutional-header">
           <div
@@ -59,9 +59,9 @@
             </button>
           </div>
           <ul class="nav-links" id="primary-nav-links">
-            <li><a href="./index.html" aria-current="page">Home</a></li>
+            <li><a href="./index.html">Home</a></li>
             <li><a href="./overview.html">Overview</a></li>
-            <li><a href="./features.html">Features</a></li>
+            <li><a href="./features.html" aria-current="page">Features</a></li>
             <li><a href="./methodology.html">Methodology</a></li>
             <li><a href="./architecture.html">Architecture</a></li>
             <li><a href="./in-action.html">In&nbsp;Action</a></li>
@@ -72,78 +72,88 @@
           </ul>
         </nav>
       </div>
-      <div class="hero-orbs" aria-hidden="true">
-        <span class="orb orb-1"></span>
-        <span class="orb orb-2"></span>
-        <span class="orb orb-3"></span>
-        <span class="orb orb-4"></span>
-        <span class="orb orb-5"></span>
-      </div>
-
-      <div class="hero-content container reveal">
-        <div class="hero-grid">
-          <div>
-            <span class="tag">Cybersecurity + AI Graduation Project</span>
-            <h2>Secure Natural Language to Bash Execution</h2>
-            <p>
-              ShellSentry helps users run Linux administration tasks on remote
-              machines by converting plain English requests into safe, validated
-              Bash commands.
-            </p>
-            <div class="hero-command">
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <code>$ "Check disk usage on all servers" -> df -h</code>
-            </div>
-            <div class="hero-actions">
-              <a class="btn" href="./architecture.html">View Architecture</a>
-              <a class="btn btn-outline" href="./in-action.html">In Action</a>
-            </div>
-            <div class="hero-metrics">
-              <div class="metric">
-                <span class="metric-value">7</span>
-                <span class="metric-label">Execution Stages</span>
-              </div>
-              <div class="metric">
-                <span class="metric-value">2</span>
-                <span class="metric-label">Validation Layers</span>
-              </div>
-              <div class="metric">
-                <span class="metric-value">100%</span>
-                <span class="metric-label">Security Focused</span>
-              </div>
-            </div>
-          </div>
-          <aside class="hero-dashboard floaty">
-            <div class="dashboard-header">
-              <span class="dash-dot"></span>
-              <span class="dash-dot"></span>
-              <span class="dash-dot"></span>
-              <p>AI Command Execution Console</p>
-            </div>
-            <div class="dashboard-row">
-              <span class="label">Request</span>
-              <code>Analyze listening ports and suggest hardening.</code>
-            </div>
-            <div class="dashboard-row">
-              <span class="label">Generated</span>
-              <code>ss -tlnp && ufw status verbose</code>
-            </div>
-            <div class="dashboard-status">
-              <div><span>Validation</span><strong>Passed</strong></div>
-              <div><span>Risk Score</span><strong>Low</strong></div>
-              <div><span>Target</span><strong>3 Servers</strong></div>
-            </div>
-            <div class="dashboard-log">
-              <p>&gt; Sanitizer check complete...</p>
-              <p>&gt; Policy checker approved command.</p>
-              <p>&gt; SSH execution completed in 2.4s.</p>
-            </div>
-          </aside>
-        </div>
-      </div>
     </header>
+    <main>
+<section id="features" class="section page-section-band page-section-band--a reveal">
+        <div class="container">
+          <h3 class="section-title">Key Implemented Features</h3>
+          <div class="grid three-col">
+            <article class="card glass">
+              <h4>Secure NL-to-Bash execution</h4>
+              <p>
+                Natural language tasks, host-aware generation, parallel multi-server SSH,
+                and JSON responses with summaries and formatted technical reports.
+              </p>
+            </article>
+            <article class="card glass">
+              <h4>Script archive lifecycle</h4>
+              <p>
+                Multi-line scripts are saved remotely under a configurable home directory
+                with timestamped <code>ShellSentry_*.sh</code> names; users can list scripts
+                (including date scopes), re-run, or request an LLM explanation of saved content.
+              </p>
+            </article>
+            <article class="card glass">
+              <h4>Safe re-execution</h4>
+              <p>
+                Strict <code>*.sh</code> basename rules, per-server existence checks, and
+                re-validation of script contents against the current policy before any rerun.
+              </p>
+            </article>
+            <article class="card glass">
+              <h4>Safe Cron mode</h4>
+              <p>
+                List only ShellSentry-managed cron lines or schedule updates for archived
+                scripts; destructive crontab removal intents are blocked at the intent layer.
+              </p>
+            </article>
+            <article class="card glass">
+              <h4>Reliability and UX</h4>
+              <p>
+                SSH port pre-checks, bounded parallel workers, independent per-host outcomes,
+                LLM retries with backoff for timeouts and HTTP 429, and clearer UI error context.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="security" class="section page-section-band page-section-band--c reveal">
+        <div class="container">
+        <h3 class="section-title">Security Features</h3>
+        <div class="grid three-col">
+          <article class="card glass">
+            <h4>Command Sanitization</h4>
+            <p>Strips risky symbols and suspicious prompt patterns before processing.</p>
+          </article>
+          <article class="card glass">
+            <h4>Input Validation</h4>
+            <p>Rejects unsafe requests using regex checks and rule-based policy gates.</p>
+          </article>
+          <article class="card glass">
+            <h4>Whitelist & Blacklist Filtering</h4>
+            <p>Allows approved commands while blocking privileged or destructive actions.</p>
+          </article>
+          <article class="card glass">
+            <h4>Secure SSH Execution</h4>
+            <p>Runs validated commands over authenticated Paramiko SSH sessions.</p>
+          </article>
+          <article class="card glass">
+            <h4>Activity Logging</h4>
+            <p>Records user requests, generated commands, and execution results for audits.</p>
+          </article>
+          <article class="card glass">
+            <h4>Read-only execution mode</h4>
+            <p>
+              Deployment can default to read-only command profiles so routine checks are
+              less likely to mutate systems—tightened further by whitelist, blacklist, and
+              normalization rules.
+            </p>
+          </article>
+        </div>
+        </div>
+      </section>
+    </main>
 
     <footer class="footer">
       <div class="container footer-wrap">

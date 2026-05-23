@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShellSentry | Senior Project Website</title>
+    <title>In Action | ShellSentry</title>
     <meta
       name="description"
       content="ShellSentry is a secure web platform that translates natural language into validated Bash commands for remote SSH execution."
@@ -16,8 +16,8 @@
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body class="page-home">
-<header class="hero" id="top">
+  <body class="page-inner">
+    <header class="site-header" id="top">
       <div class="container hero-header-stack">
         <div class="institutional-header">
           <div
@@ -59,12 +59,12 @@
             </button>
           </div>
           <ul class="nav-links" id="primary-nav-links">
-            <li><a href="./index.html" aria-current="page">Home</a></li>
+            <li><a href="./index.html">Home</a></li>
             <li><a href="./overview.html">Overview</a></li>
             <li><a href="./features.html">Features</a></li>
             <li><a href="./methodology.html">Methodology</a></li>
             <li><a href="./architecture.html">Architecture</a></li>
-            <li><a href="./in-action.html">In&nbsp;Action</a></li>
+            <li><a href="./in-action.html" aria-current="page">In&nbsp;Action</a></li>
             <li><a href="./findings.html">Findings</a></li>
             <li><a href="./conclusion.html">Conclusion</a></li>
             <li><a href="./deliverables.html">Deliverables</a></li>
@@ -72,78 +72,48 @@
           </ul>
         </nav>
       </div>
-      <div class="hero-orbs" aria-hidden="true">
-        <span class="orb orb-1"></span>
-        <span class="orb orb-2"></span>
-        <span class="orb orb-3"></span>
-        <span class="orb orb-4"></span>
-        <span class="orb orb-5"></span>
-      </div>
-
-      <div class="hero-content container reveal">
-        <div class="hero-grid">
-          <div>
-            <span class="tag">Cybersecurity + AI Graduation Project</span>
-            <h2>Secure Natural Language to Bash Execution</h2>
-            <p>
-              ShellSentry helps users run Linux administration tasks on remote
-              machines by converting plain English requests into safe, validated
-              Bash commands.
-            </p>
-            <div class="hero-command">
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <code>$ "Check disk usage on all servers" -> df -h</code>
-            </div>
-            <div class="hero-actions">
-              <a class="btn" href="./architecture.html">View Architecture</a>
-              <a class="btn btn-outline" href="./in-action.html">In Action</a>
-            </div>
-            <div class="hero-metrics">
-              <div class="metric">
-                <span class="metric-value">7</span>
-                <span class="metric-label">Execution Stages</span>
-              </div>
-              <div class="metric">
-                <span class="metric-value">2</span>
-                <span class="metric-label">Validation Layers</span>
-              </div>
-              <div class="metric">
-                <span class="metric-value">100%</span>
-                <span class="metric-label">Security Focused</span>
-              </div>
-            </div>
-          </div>
-          <aside class="hero-dashboard floaty">
-            <div class="dashboard-header">
-              <span class="dash-dot"></span>
-              <span class="dash-dot"></span>
-              <span class="dash-dot"></span>
-              <p>AI Command Execution Console</p>
-            </div>
-            <div class="dashboard-row">
-              <span class="label">Request</span>
-              <code>Analyze listening ports and suggest hardening.</code>
-            </div>
-            <div class="dashboard-row">
-              <span class="label">Generated</span>
-              <code>ss -tlnp && ufw status verbose</code>
-            </div>
-            <div class="dashboard-status">
-              <div><span>Validation</span><strong>Passed</strong></div>
-              <div><span>Risk Score</span><strong>Low</strong></div>
-              <div><span>Target</span><strong>3 Servers</strong></div>
-            </div>
-            <div class="dashboard-log">
-              <p>&gt; Sanitizer check complete...</p>
-              <p>&gt; Policy checker approved command.</p>
-              <p>&gt; SSH execution completed in 2.4s.</p>
-            </div>
-          </aside>
-        </div>
-      </div>
     </header>
+    <main>
+      <section id="in-action" class="section page-section-band page-section-band--a reveal">
+        <div class="container">
+        <h3 class="section-title">ShellSentry in Action</h3>
+        <p class="in-action-lead">
+          Representative flow: a natural language request is translated, validated, and
+          reflected back to the operator through the same response patterns the live
+          dashboard consumes (<code>natural_language_summary</code>, validated command, and
+          optional expanded technical report).
+        </p>
+        <div class="grid two-col">
+          <article class="card terminal-preview">
+            <h4>Terminal Execution Preview</h4>
+            <div class="terminal-window">
+              <p><span class="prompt">$</span> Request: "Show failed SSH logins in last hour"</p>
+              <p><span class="prompt">$</span> Generated: <code>sudo journalctl -u ssh --since "1 hour ago" | grep "Failed password"</code></p>
+              <p><span class="prompt">$</span> Validated: Allowed by security policy</p>
+              <p><span class="prompt">$</span> Output: 3 failed login attempts detected</p>
+            </div>
+          </article>
+          <article class="card">
+            <h4>Execution Response Cards</h4>
+            <div class="response-cards">
+              <div class="response-card success">
+                <strong>AI Request</strong>
+                <p>Check open ports and active network listeners.</p>
+              </div>
+              <div class="response-card validated">
+                <strong>Validated Bash</strong>
+                <p>ss -tlnp && ss -ulnp</p>
+              </div>
+              <div class="response-card done">
+                <strong>Success Response</strong>
+                <p>Execution completed on 3 servers with zero policy violations.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        </div>
+      </section>
+    </main>
 
     <footer class="footer">
       <div class="container footer-wrap">

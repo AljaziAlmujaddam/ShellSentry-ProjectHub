@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShellSentry | Senior Project Website</title>
+    <title>Key Findings | ShellSentry</title>
     <meta
       name="description"
       content="ShellSentry is a secure web platform that translates natural language into validated Bash commands for remote SSH execution."
@@ -16,8 +16,8 @@
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body class="page-home">
-<header class="hero" id="top">
+  <body class="page-inner">
+    <header class="site-header" id="top">
       <div class="container hero-header-stack">
         <div class="institutional-header">
           <div
@@ -59,91 +59,68 @@
             </button>
           </div>
           <ul class="nav-links" id="primary-nav-links">
-            <li><a href="./index.html" aria-current="page">Home</a></li>
+            <li><a href="./index.html">Home</a></li>
             <li><a href="./overview.html">Overview</a></li>
             <li><a href="./features.html">Features</a></li>
             <li><a href="./methodology.html">Methodology</a></li>
             <li><a href="./architecture.html">Architecture</a></li>
             <li><a href="./in-action.html">In&nbsp;Action</a></li>
-            <li><a href="./findings.html">Findings</a></li>
+            <li><a href="./findings.html" aria-current="page">Findings</a></li>
             <li><a href="./conclusion.html">Conclusion</a></li>
             <li><a href="./deliverables.html">Deliverables</a></li>
             <li><a href="./team.html">Team</a></li>
           </ul>
         </nav>
       </div>
-      <div class="hero-orbs" aria-hidden="true">
-        <span class="orb orb-1"></span>
-        <span class="orb orb-2"></span>
-        <span class="orb orb-3"></span>
-        <span class="orb orb-4"></span>
-        <span class="orb orb-5"></span>
-      </div>
-
-      <div class="hero-content container reveal">
-        <div class="hero-grid">
-          <div>
-            <span class="tag">Cybersecurity + AI Graduation Project</span>
-            <h2>Secure Natural Language to Bash Execution</h2>
-            <p>
-              ShellSentry helps users run Linux administration tasks on remote
-              machines by converting plain English requests into safe, validated
-              Bash commands.
-            </p>
-            <div class="hero-command">
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <code>$ "Check disk usage on all servers" -> df -h</code>
-            </div>
-            <div class="hero-actions">
-              <a class="btn" href="./architecture.html">View Architecture</a>
-              <a class="btn btn-outline" href="./in-action.html">In Action</a>
-            </div>
-            <div class="hero-metrics">
-              <div class="metric">
-                <span class="metric-value">7</span>
-                <span class="metric-label">Execution Stages</span>
-              </div>
-              <div class="metric">
-                <span class="metric-value">2</span>
-                <span class="metric-label">Validation Layers</span>
-              </div>
-              <div class="metric">
-                <span class="metric-value">100%</span>
-                <span class="metric-label">Security Focused</span>
-              </div>
-            </div>
-          </div>
-          <aside class="hero-dashboard floaty">
-            <div class="dashboard-header">
-              <span class="dash-dot"></span>
-              <span class="dash-dot"></span>
-              <span class="dash-dot"></span>
-              <p>AI Command Execution Console</p>
-            </div>
-            <div class="dashboard-row">
-              <span class="label">Request</span>
-              <code>Analyze listening ports and suggest hardening.</code>
-            </div>
-            <div class="dashboard-row">
-              <span class="label">Generated</span>
-              <code>ss -tlnp && ufw status verbose</code>
-            </div>
-            <div class="dashboard-status">
-              <div><span>Validation</span><strong>Passed</strong></div>
-              <div><span>Risk Score</span><strong>Low</strong></div>
-              <div><span>Target</span><strong>3 Servers</strong></div>
-            </div>
-            <div class="dashboard-log">
-              <p>&gt; Sanitizer check complete...</p>
-              <p>&gt; Policy checker approved command.</p>
-              <p>&gt; SSH execution completed in 2.4s.</p>
-            </div>
-          </aside>
-        </div>
-      </div>
     </header>
+    <main>
+      <section id="findings" class="section page-section-band page-section-band--b reveal">
+        <div class="container">
+        <h3 class="section-title">Key Findings</h3>
+        <div class="grid three-col findings-grid">
+          <article class="card glass">
+            <h4>LLM assistance requires policy gates.</h4>
+            <p>
+              Even with prompt hygiene and cleaned model output, deterministic whitelist,
+              blacklist, read-only, and normalization rules remain essential before any remote
+              execution.
+            </p>
+          </article>
+          <article class="card glass">
+            <h4>Host context materially improves relevance.</h4>
+            <p>
+              Parallel probes that capture OS, services, and sockets per target reduce generic
+              or hallucinated commands compared with single-prompt, host-agnostic generation.
+            </p>
+          </article>
+          <article class="card glass">
+            <h4>Reuse needs its own threat model.</h4>
+            <p>
+              Archiving scripts and supporting cron scheduling only stayed safe when filenames,
+              existence checks, managed tags, and re-validation of stored content were treated
+              as first-class controls—not add-ons.
+            </p>
+          </article>
+          <article class="card glass">
+            <h4>Defense in depth is observable end-to-end.</h4>
+            <p>
+              Authentication, input validation, intent routing, generation, validation,
+              execution, structured reporting, and audit logging each catch different failure
+              modes; no single layer is sufficient on its own.
+            </p>
+          </article>
+          <article class="card glass">
+            <h4>Probabilistic components keep residual risk.</h4>
+            <p>
+              Policies mitigate most abuse, yet LLM behavior remains non-deterministic; broader
+              production use would still demand hardened secrets management, TLS, SIEM feeds,
+              and stricter policy profiles as called out in the project scope notes.
+            </p>
+          </article>
+        </div>
+        </div>
+      </section>
+    </main>
 
     <footer class="footer">
       <div class="container footer-wrap">

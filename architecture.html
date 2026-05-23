@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Architecture & Workflow | ShellSentry</title>
+    <meta
+      name="description"
+      content="ShellSentry is a secure web platform that translates natural language into validated Bash commands for remote SSH execution."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="page-inner">
+    <header class="site-header" id="top">
+      <div class="container hero-header-stack">
+        <div class="institutional-header">
+          <div
+            class="institutional-brand"
+            role="group"
+            aria-label="University affiliation"
+          >
+            <img
+              class="uob-logo"
+              src="./images/uob-logo.png"
+              alt="University of Bahrain official emblem"
+              width="444"
+              height="514"
+              decoding="async"
+            />
+            <div class="institutional-text">
+              <p class="inst-name">University of Bahrain</p>
+              <p class="inst-college">College of Information Technology</p>
+              <p class="inst-department">Department of Information Systems</p>
+            </div>
+          </div>
+        </div>
+        <nav class="nav" aria-label="Primary">
+          <div class="nav-head">
+            <h1 class="brand"><a href="./index.html" class="brand-link">ShellSentry</a></h1>
+            <button
+              type="button"
+              class="nav-toggle"
+              id="nav-menu-toggle"
+              aria-expanded="false"
+              aria-controls="primary-nav-links"
+            >
+              <span class="nav-toggle-bars" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+              <span class="sr-only">Menu</span>
+            </button>
+          </div>
+          <ul class="nav-links" id="primary-nav-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./overview.html">Overview</a></li>
+            <li><a href="./features.html">Features</a></li>
+            <li><a href="./methodology.html">Methodology</a></li>
+            <li><a href="./architecture.html" aria-current="page">Architecture</a></li>
+            <li><a href="./in-action.html">In&nbsp;Action</a></li>
+            <li><a href="./findings.html">Findings</a></li>
+            <li><a href="./conclusion.html">Conclusion</a></li>
+            <li><a href="./deliverables.html">Deliverables</a></li>
+            <li><a href="./team.html">Team</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+<section id="architecture" class="section page-section-band page-section-band--a reveal">
+        <div class="container">
+          <h3 class="section-title">System Architecture Diagram</h3>
+          <p class="architecture-lead">
+            End-to-end request flow from the dashboard through security, intent routing, command generation, remote execution, and audit logging.
+          </p>
+          <figure class="architecture-figure">
+            <svg class="architecture-filter-defs" aria-hidden="true" width="0" height="0">
+              <defs>
+                <!-- White-background diagram: maps light→#1f2544, dark→#ffd0ec via palette only -->
+                <filter id="architecture-theme" color-interpolation-filters="sRGB">
+                  <feColorMatrix
+                    type="matrix"
+                    values="
+                      0.2126 0.7152 0.0722 0 0
+                      0.2126 0.7152 0.0722 0 0
+                      0.2126 0.7152 0.0722 0 0
+                      0 0 0 1 0"
+                  />
+                  <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="1 0.506 0.278 0.122" />
+                    <feFuncG type="table" tableValues="0.816 0.408 0.310 0.145" />
+                    <feFuncB type="table" tableValues="0.925 0.616 0.478 0.267" />
+                  </feComponentTransfer>
+                </filter>
+              </defs>
+            </svg>
+            <div class="architecture-figure__frame">
+              <img
+                class="architecture-diagram-img"
+                src="./images/System%20Architecture%20final.png"
+                alt="ShellSentry system architecture: user request flows through web API, security, intent routing, natural language to Bash generation or built-in safe actions, SSH execution on remote Linux servers, results returned to the user, and audit logging."
+                width="1672"
+                height="941"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <figcaption class="architecture-figure__caption">
+              Solid arrows show execution flow; dashed arrows show audit logging paths.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="workflow" class="section page-section-band page-section-band--b reveal">
+        <div class="container">
+        <h3 class="section-title">Interactive Workflow</h3>
+        <ol class="timeline stepper">
+          <li>
+            <h4>1. Authentication</h4>
+            <p>Session-protected access ties actions to signed-in users for accountability.</p>
+          </li>
+          <li>
+            <h4>2. Request and targets</h4>
+            <p>Users submit a natural language task and optionally select servers; otherwise configured defaults apply.</p>
+          </li>
+          <li>
+            <h4>3. Input security validation</h4>
+            <p>The security layer screens unsafe patterns and policy violations before any routing or generation.</p>
+          </li>
+          <li>
+            <h4>4. Intent routing (safe modes)</h4>
+            <p>Safe Cron intents (list or schedule managed entries) and Script Archive intents (list, rerun, explain) short-circuit to dedicated SSH helpers when matched.</p>
+          </li>
+          <li>
+            <h4>5. Host probe and RAG</h4>
+            <p>For standard NL-to-Bash, each host is probed in parallel for OS, services, and sockets; trusted examples may be retrieved to ground the LLM prompt.</p>
+          </li>
+          <li>
+            <h4>6. LLM generation and cleanup</h4>
+            <p>An OpenAI-compatible model proposes commands per host context; markdown wrappers and unsafe prompt leakage are stripped.</p>
+          </li>
+          <li>
+            <h4>7. Command validation</h4>
+            <p>Whitelist, blacklist, read-only rules, and normalization gate execution and shape the final command string.</p>
+          </li>
+          <li>
+            <h4>8. Parallel SSH execution</h4>
+            <p>Paramiko runs approved commands independently per host; multi-line scripts are archived remotely before execution when applicable.</p>
+          </li>
+          <li>
+            <h4>9. Reporting and audit</h4>
+            <p>Structured JSON includes summaries and technical reports, optional AI explanations, and persistent execution logging for review.</p>
+          </li>
+        </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-wrap">
+        <div class="footer-meta">
+          <p>
+            &copy; ShellSentry Secure Natural Language To Bash Execution 2026. All
+            rights reserved.
+          </p>
+          <p>
+            <a href="mailto:info@shellsentry.site">info@shellsentry.site</a>
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="./index.html">Home</a>
+          <a href="./overview.html">Overview</a>
+          <a href="./features.html">Features</a>
+          <a href="./methodology.html">Methodology</a>
+          <a href="./architecture.html">Architecture</a>
+          <a href="./in-action.html">In Action</a>
+          <a href="./findings.html">Findings</a>
+          <a href="./conclusion.html">Conclusion</a>
+          <a href="./deliverables.html">Deliverables</a>
+          <a href="./team.html">Team</a>
+        </div>
+        <div class="footer-social">
+        </div>
+        <a class="back-top" href="#top" aria-label="Back to top">↑ Top</a>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

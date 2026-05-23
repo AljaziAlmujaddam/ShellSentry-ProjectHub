@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShellSentry | Senior Project Website</title>
+    <title>Methodology & Stack | ShellSentry</title>
     <meta
       name="description"
       content="ShellSentry is a secure web platform that translates natural language into validated Bash commands for remote SSH execution."
@@ -16,8 +16,8 @@
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body class="page-home">
-<header class="hero" id="top">
+  <body class="page-inner">
+    <header class="site-header" id="top">
       <div class="container hero-header-stack">
         <div class="institutional-header">
           <div
@@ -59,10 +59,10 @@
             </button>
           </div>
           <ul class="nav-links" id="primary-nav-links">
-            <li><a href="./index.html" aria-current="page">Home</a></li>
+            <li><a href="./index.html">Home</a></li>
             <li><a href="./overview.html">Overview</a></li>
             <li><a href="./features.html">Features</a></li>
-            <li><a href="./methodology.html">Methodology</a></li>
+            <li><a href="./methodology.html" aria-current="page">Methodology</a></li>
             <li><a href="./architecture.html">Architecture</a></li>
             <li><a href="./in-action.html">In&nbsp;Action</a></li>
             <li><a href="./findings.html">Findings</a></li>
@@ -72,78 +72,62 @@
           </ul>
         </nav>
       </div>
-      <div class="hero-orbs" aria-hidden="true">
-        <span class="orb orb-1"></span>
-        <span class="orb orb-2"></span>
-        <span class="orb orb-3"></span>
-        <span class="orb orb-4"></span>
-        <span class="orb orb-5"></span>
-      </div>
-
-      <div class="hero-content container reveal">
-        <div class="hero-grid">
-          <div>
-            <span class="tag">Cybersecurity + AI Graduation Project</span>
-            <h2>Secure Natural Language to Bash Execution</h2>
-            <p>
-              ShellSentry helps users run Linux administration tasks on remote
-              machines by converting plain English requests into safe, validated
-              Bash commands.
-            </p>
-            <div class="hero-command">
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <code>$ "Check disk usage on all servers" -> df -h</code>
-            </div>
-            <div class="hero-actions">
-              <a class="btn" href="./architecture.html">View Architecture</a>
-              <a class="btn btn-outline" href="./in-action.html">In Action</a>
-            </div>
-            <div class="hero-metrics">
-              <div class="metric">
-                <span class="metric-value">7</span>
-                <span class="metric-label">Execution Stages</span>
-              </div>
-              <div class="metric">
-                <span class="metric-value">2</span>
-                <span class="metric-label">Validation Layers</span>
-              </div>
-              <div class="metric">
-                <span class="metric-value">100%</span>
-                <span class="metric-label">Security Focused</span>
-              </div>
-            </div>
-          </div>
-          <aside class="hero-dashboard floaty">
-            <div class="dashboard-header">
-              <span class="dash-dot"></span>
-              <span class="dash-dot"></span>
-              <span class="dash-dot"></span>
-              <p>AI Command Execution Console</p>
-            </div>
-            <div class="dashboard-row">
-              <span class="label">Request</span>
-              <code>Analyze listening ports and suggest hardening.</code>
-            </div>
-            <div class="dashboard-row">
-              <span class="label">Generated</span>
-              <code>ss -tlnp && ufw status verbose</code>
-            </div>
-            <div class="dashboard-status">
-              <div><span>Validation</span><strong>Passed</strong></div>
-              <div><span>Risk Score</span><strong>Low</strong></div>
-              <div><span>Target</span><strong>3 Servers</strong></div>
-            </div>
-            <div class="dashboard-log">
-              <p>&gt; Sanitizer check complete...</p>
-              <p>&gt; Policy checker approved command.</p>
-              <p>&gt; SSH execution completed in 2.4s.</p>
-            </div>
-          </aside>
-        </div>
-      </div>
     </header>
+    <main>
+<section id="methodology" class="section page-section-band page-section-band--b reveal">
+        <div class="container">
+        <h3 class="section-title">Methodology &amp; Approach</h3>
+        <article class="card glass methodology-card">
+          <p>
+            The project followed an iterative secure-engineering methodology: specify a
+            threat-informed pipeline first, implement modules against that design (Flask API,
+            security layer, LLM client, validator, SSH executor, RAG pipeline, formatting and
+            logging), then validate behavior in a controlled multi-host lab. Each stage in the
+            live system mirrors a documented responsibility—from authenticated
+            <code>POST /api/execute</code> orchestration through optional AI explanations of
+            reports and scripts.
+          </p>
+          <p>
+            Primary execution paths are (1) built-in safe modes for script archive and managed
+            cron, or (2) standard flow: host context probe (OS, services, listening sockets per
+            host), optional RAG retrieval of trusted examples, OpenAI-compatible chat generation
+            with output cleanup, command validation and normalization, parallel SSH execution
+            with automatic archival of multi-line scripts, and response formatting with optional
+            second-pass natural-language explanation.
+          </p>
+          <p>
+            For the step-by-step operator view of the pipeline, see the
+            <a href="./architecture.html#workflow">Interactive Workflow</a>; for module-level detail, see the
+            ShellSentry system documentation in the repository.
+          </p>
+        </article>
+        </div>
+      </section>
+
+      <section id="stack" class="section page-section-band page-section-band--c reveal">
+        <div class="container">
+          <h3 class="section-title">Technology Stack</h3>
+          <div class="grid two-col">
+            <article class="card">
+              <h4>Backend</h4>
+              <ul>
+                <li>Python, Flask, Flask-Login, Flask-SQLAlchemy</li>
+                <li>Paramiko SSH and parallel execution helpers</li>
+                <li>Validation, RAG (<code>sentence-transformers</code> + FAISS), and logging modules</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h4>Frontend</h4>
+              <ul>
+                <li>Jinja templates, HTML, CSS, and vanilla JavaScript</li>
+                <li>Dashboard UI for summaries, AI explanations, and expandable technical reports</li>
+                <li>Responsive layout and actionable error surfacing</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <footer class="footer">
       <div class="container footer-wrap">

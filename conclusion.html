@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShellSentry | Senior Project Website</title>
+    <title>Conclusion | ShellSentry</title>
     <meta
       name="description"
       content="ShellSentry is a secure web platform that translates natural language into validated Bash commands for remote SSH execution."
@@ -16,8 +16,8 @@
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body class="page-home">
-<header class="hero" id="top">
+  <body class="page-inner">
+    <header class="site-header" id="top">
       <div class="container hero-header-stack">
         <div class="institutional-header">
           <div
@@ -59,91 +59,52 @@
             </button>
           </div>
           <ul class="nav-links" id="primary-nav-links">
-            <li><a href="./index.html" aria-current="page">Home</a></li>
+            <li><a href="./index.html">Home</a></li>
             <li><a href="./overview.html">Overview</a></li>
             <li><a href="./features.html">Features</a></li>
             <li><a href="./methodology.html">Methodology</a></li>
             <li><a href="./architecture.html">Architecture</a></li>
             <li><a href="./in-action.html">In&nbsp;Action</a></li>
             <li><a href="./findings.html">Findings</a></li>
-            <li><a href="./conclusion.html">Conclusion</a></li>
+            <li><a href="./conclusion.html" aria-current="page">Conclusion</a></li>
             <li><a href="./deliverables.html">Deliverables</a></li>
             <li><a href="./team.html">Team</a></li>
           </ul>
         </nav>
       </div>
-      <div class="hero-orbs" aria-hidden="true">
-        <span class="orb orb-1"></span>
-        <span class="orb orb-2"></span>
-        <span class="orb orb-3"></span>
-        <span class="orb orb-4"></span>
-        <span class="orb orb-5"></span>
-      </div>
-
-      <div class="hero-content container reveal">
-        <div class="hero-grid">
-          <div>
-            <span class="tag">Cybersecurity + AI Graduation Project</span>
-            <h2>Secure Natural Language to Bash Execution</h2>
-            <p>
-              ShellSentry helps users run Linux administration tasks on remote
-              machines by converting plain English requests into safe, validated
-              Bash commands.
-            </p>
-            <div class="hero-command">
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <code>$ "Check disk usage on all servers" -> df -h</code>
-            </div>
-            <div class="hero-actions">
-              <a class="btn" href="./architecture.html">View Architecture</a>
-              <a class="btn btn-outline" href="./in-action.html">In Action</a>
-            </div>
-            <div class="hero-metrics">
-              <div class="metric">
-                <span class="metric-value">7</span>
-                <span class="metric-label">Execution Stages</span>
-              </div>
-              <div class="metric">
-                <span class="metric-value">2</span>
-                <span class="metric-label">Validation Layers</span>
-              </div>
-              <div class="metric">
-                <span class="metric-value">100%</span>
-                <span class="metric-label">Security Focused</span>
-              </div>
-            </div>
-          </div>
-          <aside class="hero-dashboard floaty">
-            <div class="dashboard-header">
-              <span class="dash-dot"></span>
-              <span class="dash-dot"></span>
-              <span class="dash-dot"></span>
-              <p>AI Command Execution Console</p>
-            </div>
-            <div class="dashboard-row">
-              <span class="label">Request</span>
-              <code>Analyze listening ports and suggest hardening.</code>
-            </div>
-            <div class="dashboard-row">
-              <span class="label">Generated</span>
-              <code>ss -tlnp && ufw status verbose</code>
-            </div>
-            <div class="dashboard-status">
-              <div><span>Validation</span><strong>Passed</strong></div>
-              <div><span>Risk Score</span><strong>Low</strong></div>
-              <div><span>Target</span><strong>3 Servers</strong></div>
-            </div>
-            <div class="dashboard-log">
-              <p>&gt; Sanitizer check complete...</p>
-              <p>&gt; Policy checker approved command.</p>
-              <p>&gt; SSH execution completed in 2.4s.</p>
-            </div>
-          </aside>
-        </div>
-      </div>
     </header>
+    <main>
+      <section id="conclusion" class="section page-section-band page-section-band--c reveal">
+        <div class="container">
+          <h3 class="section-title">Conclusion &amp; Future Work</h3>
+          <p>
+            ShellSentry demonstrates a practical, security-aware path to AI-assisted Linux
+            operations: beyond translating natural language, the architecture delivers
+            host-aware generation, auditable multi-host execution, governed script reuse, and
+            bounded cron automation while remaining honest about lab scope and residual LLM
+            risk.
+          </p>
+          <h4 class="subsection-title">Future enhancements</h4>
+          <p>
+            Additional roadmap items include improved script integrity checks with hashing or
+            signatures, wider input language support, more sophisticated RAG knowledge bases,
+            automation target support, and production deployment features such as TLS, secret
+            management, and more stringent policy profiles.
+          </p>
+          <div class="grid three-col conclusion-future-grid">
+            <article class="card glass"><h4>Role-based access control</h4><p>Assign varying command permissions to different users based on role.</p></article>
+            <article class="card glass"><h4>Human-in-the-loop approval</h4><p>Require explicit approval for sensitive or state-changing commands before execution.</p></article>
+            <article class="card glass"><h4>Dry-run simulation</h4><p>Preview how commands would affect systems before they run for real.</p></article>
+            <article class="card glass"><h4>Immutable logs &amp; SIEM</h4><p>Strengthen audit trails with tamper-evident logging and SIEM integration.</p></article>
+            <article class="card glass"><h4>Script integrity checks</h4><p>Verify archived scripts using hashing or digital signatures before reuse.</p></article>
+            <article class="card glass"><h4>Wider language support</h4><p>Accept operator requests in additional natural languages beyond the current scope.</p></article>
+            <article class="card glass"><h4>Advanced RAG knowledge bases</h4><p>Expand trusted example retrieval with richer, domain-specific command libraries.</p></article>
+            <article class="card glass"><h4>Automation target support</h4><p>Extend orchestration to broader automation targets beyond current SSH hosts.</p></article>
+            <article class="card glass"><h4>Production deployment</h4><p>Adopt TLS, hardened secret management, and stricter policy profiles for live use.</p></article>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <footer class="footer">
       <div class="container footer-wrap">
