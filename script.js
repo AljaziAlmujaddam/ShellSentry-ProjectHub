@@ -1,4 +1,7 @@
 const revealElements = document.querySelectorAll(".reveal");
+const isMobileHome =
+  document.body.classList.contains("page-home") &&
+  window.matchMedia("(max-width: 900px)").matches;
 
 if ("IntersectionObserver" in window && revealElements.length > 0) {
   const observer = new IntersectionObserver(
@@ -13,7 +16,13 @@ if ("IntersectionObserver" in window && revealElements.length > 0) {
     { threshold: 0.15 }
   );
 
-  revealElements.forEach((element) => observer.observe(element));
+  revealElements.forEach((element) => {
+    if (isMobileHome && element.closest(".hero")) {
+      element.classList.add("is-visible");
+      return;
+    }
+    observer.observe(element);
+  });
 } else {
   revealElements.forEach((element) => element.classList.add("is-visible"));
 }

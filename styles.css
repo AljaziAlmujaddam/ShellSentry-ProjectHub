@@ -1528,6 +1528,22 @@ code {
   text-align: center;
 }
 
+.deliverable-card-actions {
+  margin-top: auto;
+  width: 100%;
+}
+
+.deliverable-card-actions--row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.deliverable-card-actions--row .btn {
+  margin-top: 0;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
 /* Flex column so equalized min-heights fill evenly with body content */
 #objectives .grid.three-col article.card,
 #about .grid.two-col article.card,
@@ -1586,6 +1602,65 @@ code {
 }
 
 @media (max-width: 900px) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body::before {
+    display: none;
+  }
+
+  .page-home .hero {
+    min-height: auto;
+    overflow: visible;
+  }
+
+  .page-home .hero::before,
+  .page-home .hero::after,
+  .page-home .hero-orbs {
+    display: none;
+  }
+
+  .page-home .floaty {
+    animation: none;
+  }
+
+  .page-home .nav,
+  .page-home .institutional-brand,
+  .page-home .hero-command,
+  .page-home .hero-dashboard,
+  .page-home .metric {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .page-home .nav {
+    background: rgba(31, 37, 68, 0.94);
+  }
+
+  .page-home .institutional-brand {
+    background: rgba(31, 37, 68, 0.58);
+  }
+
+  .page-home .hero-command {
+    background: rgba(31, 37, 68, 0.78);
+  }
+
+  .page-home .hero-dashboard {
+    background: rgba(22, 27, 56, 0.92);
+    box-shadow: 0 8px 20px rgba(16, 20, 43, 0.35);
+  }
+
+  .page-home .metric {
+    background: rgba(31, 37, 68, 0.72);
+  }
+
+  .page-home .hero-content.reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
   .hero {
     overflow-x: hidden;
     overflow-y: visible;
